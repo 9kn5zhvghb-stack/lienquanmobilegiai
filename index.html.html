@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Đăng ký giải đấu</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-image:url("lq.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    font-family:Arial;
+}
+
+/* Nút mở form */
+#moForm{
+    position:fixed;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%);
+    background:none;
+    border:none;
+    color:orange;
+    font-size:36px;
+    font-weight:bold;
+    cursor:pointer;
+    text-shadow:0 0 10px orange;
+}
+
+/* Form */
+#formDangKy{
+    display:none;
+    position:relative;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    width:320px;
+    box-shadow:0 0 15px black;
+}
+
+/* Dấu X */
+.close{
+    position:absolute;
+    top:10px;
+    right:15px;
+    font-size:28px;
+    font-weight:bold;
+    cursor:pointer;
+    color:#666;
+}
+
+.close:hover{
+    color:red;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    box-sizing:border-box;
+}
+
+#formDangKy button{
+    width:100%;
+    padding:10px;
+    background:#007bff;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+#formDangKy button:hover{
+    background:#0056b3;
+}
+</style>
+
+</head>
+<body>
+
+<!-- Nút mở form -->
+<button id="moForm" onclick="moDangKy()">Đăng ký</button>
+
+<!-- Form -->
+<div id="formDangKy">
+
+<span class="close" onclick="dongDangKy()">&times;</span>
+
+<h2 style="text-align:center;">Đăng ký</h2>
+
+<input type="text" placeholder="Tên người chơi">
+
+<input type="number"min="0"
+    max="999999"
+    oninput="if(this.value.length > 10) this.value = this.value.slice(0,10)" placeholder="ID game">
+
+<button onclick="dangKy()">Đăng ký</button>
+
+</div>
+
+<script>
+function moDangKy(){
+    document.getElementById("moForm").style.display="none";
+    document.getElementById("formDangKy").style.display="block";
+}
+
+function dongDangKy(){
+    document.getElementById("formDangKy").style.display="none";
+    document.getElementById("moForm").style.display="block";
+}
+
+function dangKy(){
+    alert("🎉 Đăng ký thành công!");
+    dongDangKy();
+}
+</script>
+
+</body>
+</html>
